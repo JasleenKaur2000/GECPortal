@@ -1,13 +1,15 @@
-import * as React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import React from "react";
 
-export default function Screens() {
+const LoginScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Sign Ups and Logins Here</Text>
+      <Text>LoginScreen</Text>
     </View>
   );
-}
+};
+
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
