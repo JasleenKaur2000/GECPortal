@@ -8,10 +8,21 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
+import { auth } from "../config/firebase";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("logged in with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <View style={styles.container}>
@@ -39,7 +50,7 @@ const LoginScreen = () => {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity onPress={handleLogin} style={styles.loginBtn}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
