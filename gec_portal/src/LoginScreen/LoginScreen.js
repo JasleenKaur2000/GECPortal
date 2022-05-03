@@ -9,10 +9,24 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { auth } from "../config/firebase";
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react/cjs/react.development";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigation.replace("Teacher DashBoard");
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   const handleLogin = () => {
     auth
@@ -20,6 +34,16 @@ const LoginScreen = () => {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log("logged in with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
+
+  const handleSignIn = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Created User:", user.email);
       })
       .catch((error) => alert(error.message));
   };
@@ -49,9 +73,11 @@ const LoginScreen = () => {
       <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
-
       <TouchableOpacity onPress={handleLogin} style={styles.loginBtn}>
         <Text style={styles.loginText}>LOGIN</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleSignIn} style={styles.loginBtn}>
+        <Text style={styles.loginText}>SIGNIN</Text>
       </TouchableOpacity>
     </View>
   );
