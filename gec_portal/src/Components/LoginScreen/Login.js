@@ -39,42 +39,41 @@ const Login = () => {
           <Text> GEC Portal </Text>
         </View>
         <View style={Styles.middleSection}></View>
-        <View style={Styles.rightSection} >
+        <View style={Styles.rightSection}>
           <Formik
             initialValues={lognData}
             validationSchema={FormValidation}
             // onSubmit={(values) => HandelSubmit(values)}
           >
-          <View style={Styles.form}>
-            
-            <Text> Login..</Text>
-           
-            <Form >
-              <Field
-                label=" Email "
-                variant="standard"
-                placeholder="xyz@emailcom"
-                required
-                type="text"
-                as={TextField}
-                name="email"
-              />
-              <View style={{ color: "red", padding: "3px" }}>
-                <ErrorMessage name="email" />
-              </View>
-              <Field
-                label=" Password "
-                variant="standard"
-                placeholder=" ####### "
-                required
-                type="text"
-                as={TextField}
-                name="password"
-              />
-              <View style={{ color: "red", padding: "3px" }}>
-                <ErrorMessage name="password" />
-              </View>
-            </Form>
+            <View style={Styles.form}>
+              <Text> Login..</Text>
+
+              <Form>
+                <Field
+                  label=" Email "
+                  variant="standard"
+                  placeholder="xyz@emailcom"
+                  required
+                  type="text"
+                  as={TextField}
+                  name="email"
+                />
+                <View style={{ color: "red", padding: "3px" }}>
+                  <ErrorMessage name="email" />
+                </View>
+                <Field
+                  label=" Password "
+                  variant="standard"
+                  placeholder=" ####### "
+                  required
+                  type="text"
+                  as={TextField}
+                  name="password"
+                />
+                <View style={{ color: "red", padding: "3px" }}>
+                  <ErrorMessage name="password" />
+                </View>
+              </Form>
             </View>
           </Formik>
 
@@ -86,7 +85,10 @@ const Login = () => {
             <Text style={Styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
           <Text>
-            Don't have an Account ?  <TouchableOpacity><Text>Create New ..</Text></TouchableOpacity>
+            Don't have an Account ?{" "}
+            <TouchableOpacity>
+              <Text>Create New ..</Text>
+            </TouchableOpacity>
           </Text>
         </View>
       </View>
