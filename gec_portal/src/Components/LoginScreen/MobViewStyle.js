@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-const Styles= StyleSheet.create({
+const MobViewStyle= StyleSheet.create({
     page: {
         width:"100%",
         height:"auto",
@@ -14,7 +14,7 @@ const Styles= StyleSheet.create({
       },
       container:{
         display:"flex",
-        flexDirection:"row",
+        flexDirection:"coloum",
       },
       leftSection:{
         display:"flex",
@@ -22,20 +22,8 @@ const Styles= StyleSheet.create({
         alignItems:"center",
       },
       image: {
-        height: "40vh",
-        width: "30vw",
-      },
-      CUH_txt:{
-        textAlign:"center",
-        color:"#786767",
-        fontSize:"1.4rem",
-        fontWeight:"bold",
-        width:"30vw",
-        paddingHorizontal:"2.5vw",
-      },
-      GEC_txt:{
-        marginVertical:"6vh",
-        fontSize:"1.4rem",
+        height: "35rem",
+        width: "35rem",
       },
       middleSection:{
         borderColor: "#FEFEFE",
@@ -48,18 +36,10 @@ const Styles= StyleSheet.create({
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"white",
+        backgroundColor:"blue",
         marginHorizontal:"50px",
         borderRadius:32,
         textAlign:"center",
-      },
-      lgn_txt:{
-        color:"#26CDA5",
-        fontSize:"2rem",
-        textShadowColor:"#A61717",
-        textShadowOffset:"4px",
-        textShadowRadius:"4px",
-        textTransform:"3px",
       },
       form:{
         display:"flex",
@@ -81,35 +61,22 @@ const Styles= StyleSheet.create({
         padding: 10,
         marginLeft: 20,
       },
-      frgtBox:{
-        display:"flex",
-        alignItems:"flex-start",
-        paddingVertical :"2px",
-      },
+    
       forgot_button: {
         height: 30,
         marginBottom: 30,
-        color:"red",
-      },
-      btnBox:{
-        display:"flex",
-        alignItems:"center",
       },
     
       loginBtn: {
-        width: "60%",
+        width: "30%",
         borderRadius:5  ,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-      
+        marginTop: 40,
         backgroundColor: "#0DF184",
         color:"#171EC9",
       },
-      havAcnt:{
-        fontSize:"1rem",
-        marginVertical:"20px"
-      },
 });
 
-export default Styles;
+export default MobViewStyle;
