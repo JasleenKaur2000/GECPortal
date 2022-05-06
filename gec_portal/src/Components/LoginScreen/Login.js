@@ -132,7 +132,7 @@ const Login = () => {
                   </View>
 
 
-        </View>
+        </Formik>
       </View>
     </View>
   );
