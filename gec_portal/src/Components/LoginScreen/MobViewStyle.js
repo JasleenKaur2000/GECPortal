@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-const Styles = StyleSheet.create({
+const MobViewStyle = StyleSheet.create({
   page: {
     width: "100%",
     height: "auto",
@@ -14,7 +14,7 @@ const Styles = StyleSheet.create({
   },
   container: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "coloum",
   },
   leftSection: {
     display: "flex",
@@ -36,7 +36,7 @@ const Styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "blue",
     marginHorizontal: "50px",
     borderRadius: 32,
     textAlign: "center",
@@ -79,4 +79,4 @@ const Styles = StyleSheet.create({
   },
 });
 
-export default Styles;
+export default MobViewStyle;
