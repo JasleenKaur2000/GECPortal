@@ -71,7 +71,8 @@ const Login = () => {
           </Text>
           <Text style={responsiveStyle.GEC_txt}> GEC Portal </Text>
         </View>
-
+        <View style={responsiveStyle.middleSection}></View>
+        <View style={responsiveStyle.rightSection}>
           <Formik
             initialValues={loginData}
             validationSchema={FormValidation}
@@ -84,7 +85,10 @@ const Login = () => {
                 .catch((error) => alert(error.message));
             }}
           >
-
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <>
+                <View style={responsiveStyle.form}>
+                  <Text style={responsiveStyle.lgn_txt}> Login..</Text>
 
                   <Field
                     label=" Email "
@@ -131,7 +135,16 @@ const Login = () => {
                     </TouchableOpacity>
                   </View>
 
-
+                  <Text style={responsiveStyle.havAcnt}>
+                    Don't have an Account ?
+                    <TouchableOpacity>
+                      <Text>Create New ..</Text>
+                    </TouchableOpacity>
+                  </Text>
+                </View>
+              </>
+            )}
+          </Formik>
         </View>
       </View>
     </View>
