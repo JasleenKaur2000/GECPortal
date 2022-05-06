@@ -31,7 +31,7 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  const navigation=useNavigation();
+  const navigation = useNavigation();
 
   const isSize_1200_above = useMediaQuery({
     query: "(min-device-width: 1200px)",
@@ -66,7 +66,6 @@ const Login = () => {
             source={require("../../../assets/cuh_logo.png")}
           />
           <Text style={responsiveStyle.CUH_txt}>
-          
             Central University of Haryana
           </Text>
           <Text style={responsiveStyle.GEC_txt}> GEC Portal </Text>
@@ -77,10 +76,11 @@ const Login = () => {
             initialValues={loginData}
             validationSchema={FormValidation}
             onSubmit={(values) => {
-              const{email,password}=values
-              auth.signInWithEmailAndPassword(email, password)
+              const { email, password } = values;
+              auth
+                .signInWithEmailAndPassword(email, password)
                 .then(() => {
-                  navigation.replace("/admin")
+                  navigation.replace("/admin");
                 })
                 .catch((error) => alert(error.message));
             }}
