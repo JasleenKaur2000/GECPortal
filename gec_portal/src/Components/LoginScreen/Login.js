@@ -14,7 +14,7 @@ import TextField from "@mui/material/TextField";
 import * as yup from "yup";
 
 const Login = () => {
-  const [loginData, setLoginData] = useState({
+  const [lognData, setLoginData] = useState({
     email: "",
     password: "",
   });
@@ -41,7 +41,7 @@ const Login = () => {
         <View style={Styles.middleSection}></View>
         <View style={Styles.rightSection}>
           <Formik
-            initialValues={loginData}
+            initialValues={lognData}
             validationSchema={FormValidation}
             // onSubmit={(values) => HandelSubmit(values)}
           >
