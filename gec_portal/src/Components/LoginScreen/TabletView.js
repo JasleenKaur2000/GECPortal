@@ -1,8 +1,7 @@
 import React from "react";
-
 import { StyleSheet } from "react-native";
 
-const Styles= StyleSheet.create({
+const TabletView=StyleSheet.create({
     page: {
         width:"100%",
         height:"auto",
@@ -11,10 +10,12 @@ const Styles= StyleSheet.create({
         display:"flex",
         alignItems: "center",
         justifyContent: "center",
+        paddingTop:25,
       },
       container:{
         display:"flex",
-        flexDirection:"row",
+        flexDirection:"column",
+        justifyContent:"space-between",
       },
       leftSection:{
         display:"flex",
@@ -22,20 +23,25 @@ const Styles= StyleSheet.create({
         alignItems:"center",
       },
       image: {
-        height: "40vh",
-        width: "30vw",
+        height: "45vh",
+        width: "45vw",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",        
       },
       CUH_txt:{
         textAlign:"center",
         color:"#786767",
-        fontSize:"1.4rem",
+        fontSize:25,
         fontWeight:"bold",
-        width:"30vw",
+        width:"80vw",
         paddingHorizontal:"2.5vw",
       },
       GEC_txt:{
-        marginVertical:"6vh",
-        fontSize:"1.4rem",
+        marginVertical:"5vh",
+        fontSize:25,
+        fontFamily: 'Kameron',
+        fontWeight:"500",
       },
       middleSection:{
         borderColor: "#FEFEFE",
@@ -43,27 +49,37 @@ const Styles= StyleSheet.create({
         height:"auto",
         marginHorizontal:"auto",
         borderRadius:10,
+        display:"none",
       },
       rightSection:{
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
         backgroundColor:"white",
-        marginHorizontal:"50px",
-        borderRadius:32,
+        marginHorizontal:110,
+        borderRadius:16,
         textAlign:"center",
+        marginBottom:"20vh",
       },
+      lgn:{
+        // position:"absolute",
+        // marginTop:"-10%",
+       
+        // justifyContent:"center",
+        // alignItems:"flex-end",
+        // width:"45%",
+        
+        },
       lgn_txt:{
         color:"#26CDA5",
-        fontSize:"2rem",
-        textShadowColor:"#A61717",
-        textShadowOffset:"4px",
-        textShadowRadius:"4px",
-        textTransform:"3px",
+        fontSize:32,
+       
+       
       },
       form:{
         display:"flex",
-        padding:100,
+        padding:25,
+        
       },
       inputView: {
         backgroundColor: "lightblue",
@@ -84,7 +100,7 @@ const Styles= StyleSheet.create({
       frgtBox:{
         display:"flex",
         alignItems:"flex-start",
-        paddingVertical :"2px",
+        paddingVertical :2,
       },
       forgot_button: {
         height: 30,
@@ -95,7 +111,7 @@ const Styles= StyleSheet.create({
         display:"flex",
         alignItems:"center",
       },
-    
+      
       loginBtn: {
         width: "60%",
         borderRadius:5  ,
@@ -107,9 +123,13 @@ const Styles= StyleSheet.create({
         color:"#171EC9",
       },
       havAcnt:{
-        fontSize:"1rem",
-        marginVertical:"20px"
+        fontSize:20,
+        marginTop:40,
+        fontFamily: 'Ek Mukta',
+        fontWeight:"500",
+        color:"#4C5179",
+        
       },
 });
 
-export default Styles;
+export default TabletView;

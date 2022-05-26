@@ -1,8 +1,12 @@
 import { Text, View, Image, TouchableOpacity } from "react-native";
 
 import React, { useState, useLayoutEffect } from "react";
-import DeskTopStyles from "./LgnStyles";
-import MobViewStyle from "./MobViewStyle";
+
+import DeskTopStyles from "./DesktopView";
+import MobViewStyle from "./MobView";
+import TabletView from "./TabletView";
+import MobRotateView from "./MobRotateView";
+// import GlobalStyle from "./LoginStyle";
 
 import { ErrorMessage, Field, Formik } from "formik";
 import TextField from "@mui/material/TextField";
@@ -16,6 +20,8 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
+
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -36,24 +42,30 @@ const Login = () => {
   const isSize_1200_above = useMediaQuery({
     query: "(min-device-width: 1200px)",
   });
-  const isSize_900_above = useMediaQuery({
-    query: "(min-device-width:900px) and (max-device-width:1199px)",
-  });
-  const isSize_650_above = useMediaQuery({
-    query: "(min-device-width:650px) and (max-device-height:899.9px)",
+  const isSize_990_above = useMediaQuery({
+    query: "(min-device-width:640px) and (max-device-width:1000px)",
   });
   const isSize_400_above = useMediaQuery({
-    query: "(min-device-width:400px) and (max-device-width:649.9px)",
+    query: "(min-device-width:200px) and (max-device-width:639.9px)",
+  });
+  const isheight_450_below = useMediaQuery({
+    query: "(min-device-width:650px) and (max-device-height:449.9px)",
   });
 
   useLayoutEffect(() => {
     console.log("this is useEffect");
 
-    if (isSize_900_above) {
+    if (isSize_400_above) {
       setResponsiveStyle(MobViewStyle);
+    }
+    if (isSize_990_above) {
+      setResponsiveStyle(TabletView );
     }
     if (isSize_1200_above) {
       setResponsiveStyle(DeskTopStyles);
+    }
+    if (isheight_450_below) {
+      setResponsiveStyle(MobRotateView);
     }
   });
 
@@ -61,10 +73,12 @@ const Login = () => {
     <View style={responsiveStyle.page}>
       <View style={responsiveStyle.container}>
         <View style={responsiveStyle.leftSection}>
+          <View style={responsiveStyle.image} >
           <Image
-            style={responsiveStyle.image}
+            style={{width:"90%",height:"90%"}}
             source={require("../../../assets/cuh_logo.png")}
           />
+          </View>
           <Text style={responsiveStyle.CUH_txt}>
             Central University of Haryana
           </Text>
@@ -88,7 +102,9 @@ const Login = () => {
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <>
                 <View style={responsiveStyle.form}>
-                  <Text style={responsiveStyle.lgn_txt}> Login..</Text>
+                   <View style={responsiveStyle.lgn} >
+                  <Text style={responsiveStyle.lgn_txt} > Login</Text>
+                  </View>
 
                   <Field
                     label=" Email "
@@ -101,7 +117,7 @@ const Login = () => {
                     value={values.email}
                     onChange={handleChange}
                   />
-                  <View style={{ color: "red", padding: "3px" }}>
+                  <View style={{ color: "red", padding:3 }}>
                     <ErrorMessage name="email" />
                   </View>
                   <Field
@@ -115,8 +131,9 @@ const Login = () => {
                     name="password"
                     onBlur={handleBlur("password")}
                     onChange={handleChange}
+                    sx={{marginTop:"10px"}}
                   />
-                  <View style={{ color: "red", padding: "3px" }}>
+                  <View style={{ color: "red", padding:3 }}>
                     <ErrorMessage name="password" />
                   </View>
                   <View style={responsiveStyle.frgtBox}>
@@ -131,14 +148,14 @@ const Login = () => {
                       style={responsiveStyle.loginBtn}
                       onPress={handleSubmit}
                     >
-                      <Text style={responsiveStyle.loginText}>LOGIN</Text>
+                      <Text style={responsiveStyle.loginText}>SUBMIT</Text>
                     </TouchableOpacity>
                   </View>
 
                   <Text style={responsiveStyle.havAcnt}>
-                    Don't have an Account ?
+                    Don't have an Account ? 
                     <TouchableOpacity>
-                      <Text>Create New ..</Text>
+                      <Text>  Create New ..</Text>
                     </TouchableOpacity>
                   </Text>
                 </View>
