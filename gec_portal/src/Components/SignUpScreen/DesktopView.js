@@ -15,7 +15,6 @@ const Styles = StyleSheet.create({
     width: "30vw",
   },
   GEC_txt: {
-    marginVertical: "6vh",
     fontSize: 22,
   },
   rightSection: {
@@ -27,6 +26,10 @@ const Styles = StyleSheet.create({
   },
   form: {
     padding: 52,
+    width: "26vw",
+  },
+  inputView: {
+    width: "70%",
   },
   havAcnt: {
     fontSize: 20,

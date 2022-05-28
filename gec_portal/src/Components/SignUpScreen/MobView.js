@@ -31,6 +31,7 @@ const MobViewStyle = StyleSheet.create({
   },
   form: {
     padding: 25,
+    width: "85vw",
   },
   havAcnt: {
     fontSize: 20,

@@ -1,14 +1,18 @@
 import React from "react";
-
 import { StyleSheet } from "react-native";
 
-const MobViewStyle = StyleSheet.create({
+const TabletView = StyleSheet.create({
   container: {
+    display: "flex",
     flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  leftSection: {
+    justifyContent: "center",
   },
   image: {
-    height: "35vh",
-    width: "60vw",
+    height: "45vh",
+    width: "45vw",
   },
   CUH_txt: {
     fontSize: 25,
@@ -22,7 +26,7 @@ const MobViewStyle = StyleSheet.create({
     display: "none",
   },
   rightSection: {
-    marginHorizontal: 30,
+    marginHorizontal: 110,
     borderRadius: 16,
     marginBottom: "20vh",
   },
@@ -32,10 +36,13 @@ const MobViewStyle = StyleSheet.create({
   form: {
     padding: 25,
   },
+  loginBtn: {
+    width: "60%",
+  },
   havAcnt: {
     fontSize: 20,
     marginTop: 40,
   },
 });
 
-export default MobViewStyle;
+export default TabletView;

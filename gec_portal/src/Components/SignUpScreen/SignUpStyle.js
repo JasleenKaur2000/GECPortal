@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-const LoginStyle = StyleSheet.create({
+const SignUpStyle = StyleSheet.create({
   page: {
     width: "100%",
     height: "auto",
@@ -28,6 +28,7 @@ const LoginStyle = StyleSheet.create({
     paddingHorizontal: "2.5vw",
   },
   GEC_txt: {
+    marginVertical: "6vh",
     fontFamily: "Kameron",
     fontWeight: "500",
   },
@@ -53,13 +54,8 @@ const LoginStyle = StyleSheet.create({
   },
   inputView: {
     backgroundColor: "lightblue",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
     alignItems: "flex-end",
   },
-
   TextInput: {
     height: 50,
     flex: 1,
@@ -90,10 +86,11 @@ const LoginStyle = StyleSheet.create({
     color: "#171EC9",
   },
   havAcnt: {
+    marginVertical: 40,
     fontFamily: "Ek Mukta",
     fontWeight: "500",
     color: "#4C5179",
   },
 });
 
-export default LoginStyle;
+export default SignUpStyle;

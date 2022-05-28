@@ -1,34 +1,38 @@
 import { Text, View, Image, TouchableOpacity } from "react-native";
-
 import React, { useState, useLayoutEffect } from "react";
 
+// IMPORTING Local Components And Styles
 import DeskTopStyles from "./DesktopView";
 import MobViewStyle from "./MobView";
 import TabletView from "./TabletView";
 import MobRotateView from "./MobRotateView";
-// import GlobalStyle from "./LoginStyle";
+import GlobalStyle from "./LoginStyle";
 
+// IMPORTING Libraries
 import { ErrorMessage, Field, Formik } from "formik";
 import TextField from "@mui/material/TextField";
 import * as yup from "yup";
-import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { auth } from "../config/firebase";
-
 import "@expo/match-media";
 import { useMediaQuery } from "react-responsive";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
 
+ //This is used to store Navigation fn
+  const navigation =useNavigation();
 
+//This is used to store Entered Data in form
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
+// This gives a property to select CSS Style Dynamicaly
   const [responsiveStyle, setResponsiveStyle] = useState(DeskTopStyles);
 
+//Here we are Form Validation to validate user Entered Data
   const FormValidation = yup.object().shape({
     email: yup.string().email("Inavalid Email ").required("Email is required"),
     password: yup
@@ -37,8 +41,7 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  const navigation = useNavigation();
-
+// Here we are Defining some Screen Size Ratios
   const isSize_1200_above = useMediaQuery({
     query: "(min-device-width: 1200px)",
   });
@@ -52,6 +55,7 @@ const Login = () => {
     query: "(min-device-width:650px) and (max-device-height:449.9px)",
   });
 
+// This fn is used to Change Style and make page responsive
   useLayoutEffect(() => {
     console.log("this is useEffect");
 
@@ -69,23 +73,24 @@ const Login = () => {
     }
   });
 
+// Here the Actuall Body part starts
   return (
-    <View style={responsiveStyle.page}>
-      <View style={responsiveStyle.container}>
-        <View style={responsiveStyle.leftSection}>
-          <View style={responsiveStyle.image} >
+    <View style={[responsiveStyle.page ,GlobalStyle.page]}>
+      <View style={[responsiveStyle.container,GlobalStyle.container]}>
+        <View style={[responsiveStyle.leftSection,GlobalStyle.leftSection]}>
+          <View style={[responsiveStyle.image,GlobalStyle.image]} >
           <Image
-            style={{width:"90%",height:"90%"}}
+            style={{width:"99%",height:"98%"}}
             source={require("../../../assets/cuh_logo.png")}
           />
           </View>
-          <Text style={responsiveStyle.CUH_txt}>
+          <Text style={[responsiveStyle.CUH_txt,GlobalStyle.CUH_txt]}>
             Central University of Haryana
           </Text>
-          <Text style={responsiveStyle.GEC_txt}> GEC Portal </Text>
+          <Text style={[responsiveStyle.GEC_txt,GlobalStyle.GEC_txt]}> GEC Portal </Text>
         </View>
-        <View style={responsiveStyle.middleSection}></View>
-        <View style={responsiveStyle.rightSection}>
+        <View style={[responsiveStyle.middleSection,GlobalStyle.middleSection]}></View>
+        <View style={[responsiveStyle.rightSection,GlobalStyle.rightSection]}>
           <Formik
             initialValues={loginData}
             validationSchema={FormValidation}
@@ -101,9 +106,9 @@ const Login = () => {
           >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <>
-                <View style={responsiveStyle.form}>
-                   <View style={responsiveStyle.lgn} >
-                  <Text style={responsiveStyle.lgn_txt} > Login</Text>
+                <View style={[responsiveStyle.form,GlobalStyle.form]}>
+                   <View style={[responsiveStyle.lgn,GlobalStyle.lgn]} >
+                  <Text style={[responsiveStyle.lgn_txt,GlobalStyle.lgn_txt]} > Login</Text>
                   </View>
 
                   <Field
@@ -136,29 +141,29 @@ const Login = () => {
                   <View style={{ color: "red", padding:3 }}>
                     <ErrorMessage name="password" />
                   </View>
-                  <View style={responsiveStyle.frgtBox}>
+                  <View style={[responsiveStyle.frgtBox,GlobalStyle.frgtBox]}>
                     <TouchableOpacity>
-                      <Text style={responsiveStyle.forgot_button}>
+                      <Text style={[responsiveStyle.forgot_button,GlobalStyle.forgot_button]}>
                         Forgot Password?
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  <View style={responsiveStyle.btnBox}>
+                  <View style={[responsiveStyle.btnBox,GlobalStyle.btnBox]}>
                     <TouchableOpacity
-                      style={responsiveStyle.loginBtn}
+                      style={[responsiveStyle.loginBtn,GlobalStyle.loginBtn]}
                       onPress={handleSubmit}
                     >
-                      <Text style={responsiveStyle.loginText}>SUBMIT</Text>
+                      <Text style={[responsiveStyle.loginText,GlobalStyle.loginText]}>SUBMIT</Text>
                     </TouchableOpacity>
                   </View>
 
-                  <Text style={responsiveStyle.havAcnt}>
+                  <Text style={[responsiveStyle.havAcnt,GlobalStyle.havAcnt]}>
                     Don't have an Account ? 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.navigate("/signUp")} >
                       <Text>  Create New ..</Text>
                     </TouchableOpacity>
                   </Text>
-                </View>
+                </View> 
               </>
             )}
           </Formik>
