@@ -1,0 +1,67 @@
+{
+  "B.Tech":[
+    { 
+      "id":1,
+      "fullname" : " Computer Science & Engineering ",
+      "label": "B.Tech CSE "
+    },
+    { 
+      "id":2,
+      "fullname" : " Civil Engineering ",
+      "label":  "B.Tech Civil" 
+    },
+    { 
+      "id":3,
+      "fullname" : " Electrical Engineering ",
+      "label":  "B.Tech EE "
+    },
+    { 
+      "id":4,
+      "fullname" : " Printing And Packaging Technology ",
+      "label": "B.Tech PPT" 
+    }
+  ],
+
+  "M.Tech":[
+    { 
+      "id":1,
+      "fullname" : " Computer Science & Engineering ",
+      "label": "M.Tech CSE "
+    },
+    { 
+      "id":2,
+      "fullname" : " Civil Engineering ",
+      "label":  "M.Tech Civil" 
+    },
+    { 
+      "id":3,
+      "fullname" : " Electrical Engineering ",
+      "label":  "M.Tech EE "
+    },
+    { 
+      "id":4,
+      "fullname" : " Printing And Packaging Technology ",
+      "label": "M.Tech PPT" 
+    }
+  ],
+
+  "B.Voc":[
+    { 
+      "id":1,
+      "fullname" : " Retail and Logistics Management ",
+      "label": "B.Voc RLM "
+    },
+    { 
+      "id":2,
+      "fullname" : " Biomedical Sciences ",
+      "label":  "B.Voc BS" 
+    },
+    { 
+      "id":3,
+      "fullname" : " Industrial Waste Management ",
+      "label":  "B.Voc IWM "
+    }
+  ]
+}
+
+  
