@@ -1,11 +1,23 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
+// IMPORTING Local Components and Styles
+import Header from "../Header";
+import DashBoardMessage from "../DashBoardMessage";
+import BodyPart from "./BodyPart";
 
+// IMPORTING Libraries
+
+// Actuall Components Start's here
 const StudentDsBrd = () => {
+  // Returning the Actuall Body Part
   return (
     <View>
-      <Text>Student Dashboard</Text>
+      <Header DashboardType={"Student DashBoard"} UserName={"Deepak"} />
+      <DashBoardMessage
+        DsBrdMessage={" Select your Intrested GEC  Subject  "}
+      />
+      <BodyPart />
     </View>
   );
 };
