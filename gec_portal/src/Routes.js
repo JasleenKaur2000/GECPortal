@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 const Routes = () => {
   return (
-      <Stack.Navigator initialRouteName="/student" >
+      <Stack.Navigator initialRouteName="/teacher" >
         <Stack.Screen name="/login" component={Login}/>
         <Stack.Screen name="/signUp" component={SignUp}/>
         <Stack.Screen name="/admin" component={AdminDsBrd}/>
